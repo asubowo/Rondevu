@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="me.rondevu.rondevu.CreateEventActivity"
+    android:id="@+id/">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventNameEditText"
+        android:text="What&apos;s the event?"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/eventNameTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hostNameEditText"
+        android:text="Who&apos;s hosting?"
+        android:layout_below="@+id/eventNameEditText"
+        android:layout_alignStart="@+id/eventNameEditText"
+        android:layout_alignEnd="@+id/eventNameEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Event Name"
+        android:id="@+id/eventNameTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/hostNameEditText"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Host Name"
+        android:id="@+id/hostNameTextView"
+        android:layout_alignBottom="@+id/hostNameEditText"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/eventNameTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Event Info"
+        android:id="@+id/eventInfoTextView"
+        android:gravity="center_vertical"
+        android:layout_below="@+id/locationEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/eventInfoEditText"
+        android:layout_toStartOf="@+id/eventInfoEditText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Location"
+        android:id="@+id/locationTextView"
+        android:layout_below="@+id/hostNameTextView"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/hostNameEditText"
+        android:layout_above="@+id/eventInfoTextView"
+        android:gravity="center_vertical" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/eventInfoEditText"
+        android:text="What&apos;s the event about?"
+        android:layout_below="@+id/locationEditText"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/locationTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:layout_below="@+id/hostNameEditText"
+        android:text="Where&apos;s the event at?"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/locationTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tags (separated by &quot; &quot;)"
+        android:id="@+id/tagsTextView"
+        android:layout_below="@+id/eventInfoTextView"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/eventInfoEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignTop="@+id/tagsTextView"
+        android:layout_alignBottom="@+id/tagsTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tagsTextView"
+        android:text="Enter tags (separated by spaces)" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE EVENT"
+        android:id="@+id/finalizeEventButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL"
+        android:id="@+id/cancelCreateEventButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Person Limit"
+        android:id="@+id/personLimitTextView"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/cancelCreateEventButton"
+        android:gravity="center_vertical" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/personLimitEditText"
+        android:layout_alignBottom="@+id/personLimitTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/tagsTextView"
+        android:text="Enter capacity" />
+
+</RelativeLayout>
