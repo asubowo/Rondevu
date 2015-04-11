@@ -6,35 +6,30 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 
-public class MainActivity extends ActionBarActivity {
+public class CreateEventActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
-    private Button createEventButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_create_event);
 
         EventManager eventManager = new EventManager();
 
+        Intent intent = getIntent();
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-
-        createEventButton = (Button) findViewById(R.id.host);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_create_event, menu);
         return true;
     }
 
@@ -51,10 +46,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void createEvent(View view) {
-        Intent intent = new Intent(this, CreateEventActivity.class);
-        startActivity(intent);
     }
 }
