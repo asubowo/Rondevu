@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.rondevu.rondevu" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +17,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CreateEventActivity"
+            android:label="Create an Event"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.rondevu.rondevu.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CreateEventServer"
+            android:label="Rondevu"
+            android:parentActivityName=".CreateEventActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.rondevu.rondevu.CreateEventActivity" />
         </activity>
     </application>
 
