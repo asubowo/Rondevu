@@ -124,7 +124,7 @@ public class MainActivity extends ActionBarActivity {
             HttpClient httpclient = new DefaultHttpClient();
             HttpResponse response;
             String responseString = null;
-            
+
             try {
                 response = httpclient.execute(new HttpGet(uri[0]));
                 StatusLine statusLine = response.getStatusLine();

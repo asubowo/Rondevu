@@ -14,6 +14,17 @@
         <item>SPORTS</item>
         <item>OTHER</item>
     </string-array>
+
+    <string-array name="filter_array">
+        <item>NORMAL</item>
+        <item>CONCERT</item>
+        <item>EVENT</item>
+        <item>FESTIVAL</item>
+        <item>PARTY</item>
+        <item>SPORTS</item>
+        <item>OTHER</item>
+    </string-array>
+
     <string name="title_activity_create_event_server">CreateEventServer</string>
 
 </resources>

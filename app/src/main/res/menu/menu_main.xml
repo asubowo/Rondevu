@@ -12,6 +12,6 @@
         android:id="@+id/action_refresh"
         android:title="REFRESH"
         android:orderInCategory="200"
-        app:showAsAction="always"
-        />
+        app:showAsAction="always" />
+   
 </menu>
