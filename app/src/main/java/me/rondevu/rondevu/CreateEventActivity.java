@@ -44,6 +44,27 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
         location = (EditText) findViewById(R.id.locationEditText);
         personLimit = (EditText) findViewById(R.id.personLimitEditText);
 
+
+        eventName.addTextChangedListener(new TextValidator(eventName) {
+            @Override
+            public void validate(TextView textView, String text) {
+                if (eventName.equals("") || eventName == null) {
+                    eventName.setError("Please enter a name for this event");
+                }
+            }
+        });
+
+        hostName.addTextChangedListener(new TextValidator(hostName) {
+            @Override
+            public void validate(TextView textView, String text) {
+                if (hostName.equals("") || hostName == null) {
+                    eventName.setError("Please enter a name for the organization or person hosting!");
+                }
+            }
+        });
+
+
+
         personLimit.addTextChangedListener(new TextValidator(personLimit) {
             @Override
             public void validate(TextView textView, String text) {
@@ -70,6 +91,7 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
 
 
         button = (Button) findViewById(R.id.finalizeEventButton);
+        cancelButton = (Button) findViewById(R.id.cancelCreateEventButton);
 
     }
 
@@ -111,6 +133,27 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
     public void createEvent(View view) {
         Intent intent = new Intent(this, CreateEventServer.class);
 
+
+        if (eventName.getText().toString().equals("") || eventName.getText().toString() == null) {
+            eventName.setText("Unknown Event");
+        }
+
+        if (hostName.getText().toString().equals("") || hostName.getText().toString() == null) {
+            hostName.setText("a mystery person");
+        }
+
+        if (eventInfo.getText().toString().equals("") || eventInfo.getText().toString() == null) {
+            eventInfo.setText("No description available");
+        }
+
+        if (location.getText().toString().equals("") || location.getText().toString() == null) {
+            location.setText("a mystery location!");
+        }
+
+        if (personLimit.getText().toString().equals("") || personLimit.getText().toString() == null) {
+            personLimit.setText("1");
+        }
+
         intent.putExtra("eventName", eventName.getText().toString());
         intent.putExtra("hostName", hostName.getText().toString());
         intent.putExtra("eventInfo", eventInfo.getText().toString());
@@ -120,5 +163,9 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
 
 
         startActivity(intent);
+    }
+
+    public void cancelEvent(View view) {
+        finish();
     }
 }

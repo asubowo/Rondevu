@@ -52,10 +52,6 @@ public class Event {
      */
     public String getHost() {
 
-        if (host.equals("") || host == null) {
-            return "a mysterious person";
-        }
-
         return host;
     }
 
@@ -74,7 +70,7 @@ public class Event {
      * @return Returns the event as a readable string
      */
     public String toString() {
-        return eventName + ", hosted by " + getHost() + " at " + getLocation();
+        return eventName + ", hosted by " + host + " at " + getLocation();
     }
 
     /**
@@ -83,10 +79,6 @@ public class Event {
      * @return The string representation of this event
      */
     public String getInfo() {
-
-        if (info.equals("") || info == null) {
-            return "No information available for this event.";
-        }
 
         return info;
     }

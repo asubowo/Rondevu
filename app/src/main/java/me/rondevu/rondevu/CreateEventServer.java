@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.TextView;
 
 
 public class CreateEventServer extends ActionBarActivity {
@@ -36,6 +36,10 @@ public class CreateEventServer extends ActionBarActivity {
         int personLimit = Integer.parseInt(personLimitString);
 
         Event event = new Event(eventName, hostName, location, eventInfo, category, personLimit);
+
+        TextView text = (TextView) findViewById(R.id.textView);
+
+        text.setText(event.toString());
 
     }
 

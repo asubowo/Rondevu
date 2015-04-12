@@ -20,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private Button createEventButton;
 
+    private EventAdapter ea;
 
 
     @Override
@@ -38,11 +39,17 @@ public class MainActivity extends ActionBarActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
 
-        ContactAdapter ca = new ContactAdapter(createList(30));
-        recList.setAdapter(ca);
+        ea = new EventAdapter(createList(0));
+        recList.setAdapter(ea);
 
+        testAdd();
     }
 
+
+    public void testAdd() {
+        Event test = new Event("Bitcamp", "University of Maryland", "College Park", "HACK AWAY", "category", 10);
+        ea.getList().add(test);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,15 +78,14 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    private List<ContactInfo> createList(int size) {
+    private List<Event> createList(int size) {
 
-        List<ContactInfo> result = new ArrayList<ContactInfo>();
+        List<Event> result = new ArrayList<Event>();
         for (int i=1; i <= size; i++) {
-            ContactInfo ci = new ContactInfo();
-            ci.name = ContactInfo.NAME_PREFIX + " test"+ i;
 
 
-            result.add(ci);
+
+
 
         }
 
