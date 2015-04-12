@@ -24,6 +24,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.rondevu.rondevu.MainActivity" />
         </activity>
+        <activity
+            android:name=".NavigationDrawerFragment"
+            android:label="@string/title_activity_navigation_drawer_fragment" >
+        </activity>
     </application>
 
 </manifest>
