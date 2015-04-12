@@ -3,8 +3,8 @@ module Api
 
     private
 
-      def artist_params
-        params.require(:username, :email).permit(:name)
+      def user_params
+        JSON.parse params.require(:user)#.permit(:name)
       end
 
       def query_params

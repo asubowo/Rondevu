@@ -6,7 +6,9 @@ module Api
 
     # POST /api/{plural_resource_name}
     def create
+      print "******#{resource_params}*******"
       set_resource(resource_class.new(resource_params))
+
 
       if get_resource.save
         render :show, status: :created
@@ -87,6 +89,8 @@ private
       # the method "#{resource_name}_params" to limit permitted
       # parameters for the individual model.
       def resource_params
+        print "------------------------------------------\n"
+        print "#{resource_name}\n"
         @resource_params ||= self.send("#{resource_name}_params")
       end
 

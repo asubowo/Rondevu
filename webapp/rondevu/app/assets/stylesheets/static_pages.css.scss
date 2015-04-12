@@ -19,33 +19,33 @@ h1 {
     color:#ffffff;
 }
 
-.footer p {
-    text-align: center;
-    margin: auto;
+.phone_container {
+  margins:auto;
+  text-align:center;
 }
 
 .row {
+  padding-top:7%;
     min-height:100%;
+    margine:auto;
+    position:relative;
+    text-align:center;
 }
 
-/* Custom container */
-.container-full {
-  margin: 0 auto;
-  width: 100%;
-  min-height:100%;
-  background-image: url('/images/sunset.jpg');
-  color:#eee;
-  overflow:hidden;
+.phone_photo{
+  background-image: url('/images/phone_demo.png');
+  background-repeat: no-repeat;
+  width: 275px;
+  height: 500px;
+  display: inline-block;
 }
 
-.container-full a {
-  color:#efefef;
-  text-decoration:none;
+.phone_text {
+    display: inline-block;
+    padding-top:15%;
+      vertical-align: top;
+        display: inline-block;
 }
 
-.v-center {
-  margin-top:7%;
-}
-    
 
 

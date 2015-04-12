@@ -8,7 +8,7 @@ body {
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 18px;
 }
 
@@ -66,4 +66,78 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+/* ---- footer ------ */
+
+footer {
+  color:white;
+  text-align: center;
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 100px;
+
+}
+
+footer p {
+  font-size: 1em;
+}
+
+/* ------- NAV BAR ------ */
+
+/*Nav bar*/
+$bgDefault      : #ffbb02;
+$bgHighlight    : #bbff02;
+$colDefault     : #fffddd;
+$colHighlight       : #ff0000;
+
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgDefault;
+
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus { 
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+  float:right;
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
 }
