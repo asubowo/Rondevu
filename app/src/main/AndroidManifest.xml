@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.rondevu.rondevu.MainActivity" />
         </activity>
+        <activity
+            android:name=".CreateEventServer"
+            android:label="@string/title_activity_create_event_server"
+            android:parentActivityName=".CreateEventActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.rondevu.rondevu.CreateEventActivity" />
+        </activity>
     </application>
 
 </manifest>

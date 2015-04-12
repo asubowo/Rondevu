@@ -3,11 +3,16 @@ package me.rondevu.rondevu;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -15,19 +20,27 @@ public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
     private Button createEventButton;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         EventManager eventManager = new EventManager();
-
-
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
         createEventButton = (Button) findViewById(R.id.host);
+
+        RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
+        recList.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recList.setLayoutManager(llm);
+
+        ContactAdapter ca = new ContactAdapter(createList(30));
+        recList.setAdapter(ca);
+
     }
 
 
@@ -56,5 +69,20 @@ public class MainActivity extends ActionBarActivity {
     public void createEvent(View view) {
         Intent intent = new Intent(this, CreateEventActivity.class);
         startActivity(intent);
+    }
+
+    private List<ContactInfo> createList(int size) {
+
+        List<ContactInfo> result = new ArrayList<ContactInfo>();
+        for (int i=1; i <= size; i++) {
+            ContactInfo ci = new ContactInfo();
+            ci.name = ContactInfo.NAME_PREFIX + " test"+ i;
+
+
+            result.add(ci);
+
+        }
+
+        return result;
     }
 }
