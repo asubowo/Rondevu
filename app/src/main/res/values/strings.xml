@@ -26,5 +26,6 @@
     </string-array>
 
     <string name="title_activity_create_event_server">CreateEventServer</string>
+    <string name="title_activity_event_information">EventInformationActivity</string>
 
 </resources>
