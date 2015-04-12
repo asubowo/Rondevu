@@ -1,54 +1,40 @@
 package me.rondevu.rondevu;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 
-public class CreateEventServer extends ActionBarActivity {
+
+public class EventInformationActivity extends ActionBarActivity {
+
+
+    private String eventInformation;
 
     private Toolbar toolbar;
-
-    private String eventName, hostName, eventInfo, location, personLimitString, category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_event_server);
-
-        Intent intent = getIntent();
+        setContentView(R.layout.activity_event_information);
 
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
-        category = intent.getStringExtra("categorySelectionFromActivity");
-        eventName = intent.getStringExtra("eventName");
-        hostName = intent.getStringExtra("hostName");
-        eventInfo = intent.getStringExtra("eventInfo");
-        location = intent.getStringExtra("location");
-        personLimitString = intent.getStringExtra("personLimit");
-
-
-        int personLimit = Integer.parseInt(personLimitString);
-
-        Event event = new Event(eventName, hostName, location, eventInfo, category, personLimit);
-
-        TextView text = (TextView) findViewById(R.id.textView);
-        text.setText(event.toString());
-
     }
+
+
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_create_event_server, menu);
+        getMenuInflater().inflate(R.menu.menu_event_information, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

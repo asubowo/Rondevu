@@ -34,6 +34,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.rondevu.rondevu.CreateEventActivity" />
         </activity>
+        <activity
+            android:name=".EventInformationActivity"
+
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.rondevu.rondevu.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

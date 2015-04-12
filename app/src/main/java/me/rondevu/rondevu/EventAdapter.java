@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
 
-    private List<Event> eventList;
+   public List<Event> eventList;
 
     private static String info;
     private static Event ev2;
@@ -23,6 +24,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
     public EventAdapter(List<Event> eventList) {
         this.eventList = eventList;
+    }
+
+    public Event getEvent(int position) {
+        return eventList.get(position);
     }
 
     public List<Event> getList() {
@@ -73,6 +78,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         }
 
     }
+
 
 
     public void addAll(List<Event> addArray) {

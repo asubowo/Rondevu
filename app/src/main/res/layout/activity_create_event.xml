@@ -109,7 +109,8 @@
         android:id="@+id/finalizeEventButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="createEvent"/>
+        android:onClick="createEvent"
+        android:layout_toEndOf="@+id/cancelCreateEventButton" />
 
     <Button
         android:background="#FFBB02"
@@ -120,7 +121,9 @@
         android:id="@+id/cancelCreateEventButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:onClick="cancelEvent"/>
+        android:onClick="cancelEvent"
+        android:layout_toStartOf="@+id/personLimitEditText"
+        android:singleLine="false" />
 
     <TextView
         android:layout_width="wrap_content"
