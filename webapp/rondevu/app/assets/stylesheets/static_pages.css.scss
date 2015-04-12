@@ -1,0 +1,51 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+html,body {
+  height:100%;
+  overflow:hidden;
+}
+
+h1 {
+  font-family: 'Open Sans', serif;
+  font-size:80px;
+  color:#ffffff;
+}
+
+.lead {
+    color:#ffffff;
+}
+
+.phone_container {
+  margins:auto;
+  text-align:center;
+}
+
+.row {
+  padding-top:7%;
+    min-height:100%;
+    margine:auto;
+    position:relative;
+    text-align:center;
+}
+
+.phone_photo{
+  background-image: url('/images/phone_demo.png');
+  background-repeat: no-repeat;
+  width: 275px;
+  height: 500px;
+  display: inline-block;
+}
+
+.phone_text {
+    display: inline-block;
+    padding-top:15%;
+      vertical-align: top;
+        display: inline-block;
+}
+
+
+
