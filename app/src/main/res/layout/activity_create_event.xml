@@ -146,7 +146,8 @@
         android:layout_alignTop="@+id/personLimitTextView"
         android:layout_alignStart="@+id/locationEditText"
         android:singleLine="true"
-        android:imeOptions="actionNext"/>
+        android:imeOptions="actionNext"
+        android:layout_alignParentEnd="true" />
 
     <Spinner
         android:layout_width="wrap_content"

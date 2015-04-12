@@ -18,12 +18,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:text="HOST AN EVENT"
+        android:text="CREATE AN EVENT"
         android:onClick="createEvent"
         android:layout_gravity="bottom" />
-
-
-
 
     <LinearLayout
         android:orientation="vertical"

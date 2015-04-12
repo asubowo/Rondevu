@@ -1,5 +1,6 @@
 package me.rondevu.rondevu;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
 
     private List<Event> eventList;
+
+    private static String info;
+    private static Event ev2;
+
 
     public EventAdapter(List<Event> eventList) {
         this.eventList = eventList;
@@ -34,7 +39,50 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         Event ev = eventList.get(i);
 
-        eventViewHolder.eventName.setText(ev.getEventName());
+
+        eventViewHolder.eventInfo.setText(ev.toString());
+
+        if (eventViewHolder.eventInfo.getText().toString().contains("CONCERT")) {
+            eventViewHolder.eventInfo.setBackgroundColor(Color.parseColor("#4CAF50"));
+            eventViewHolder.eventInfo.setTextColor(Color.WHITE);
+        }
+
+        else if (eventViewHolder.eventInfo.getText().toString().contains("EVENT")) {
+            eventViewHolder.eventInfo.setBackgroundColor(Color.parseColor("#5D8AA8"));
+            eventViewHolder.eventInfo.setTextColor(Color.WHITE);
+        }
+
+        else if (eventViewHolder.eventInfo.getText().toString().contains("FESTIVAL")) {
+            eventViewHolder.eventInfo.setBackgroundColor(Color.parseColor("#AA66CC"));
+            eventViewHolder.eventInfo.setTextColor(Color.WHITE);
+        }
+
+        else if (eventViewHolder.eventInfo.getText().toString().contains("PARTY")) {
+            eventViewHolder.eventInfo.setBackgroundColor(Color.parseColor("#FF4444"));
+            eventViewHolder.eventInfo.setTextColor(Color.WHITE);
+        }
+
+        else if (eventViewHolder.eventInfo.getText().toString().contains("SPORTS")) {
+            eventViewHolder.eventInfo.setBackgroundColor(Color.parseColor("#99CC00"));
+            eventViewHolder.eventInfo.setTextColor(Color.WHITE);
+        }
+
+        else {
+            eventViewHolder.eventInfo.setBackgroundColor(Color.parseColor("#33B5E5"));
+            eventViewHolder.eventInfo.setTextColor(Color.WHITE);
+        }
+
+    }
+
+
+    public void addAll(List<Event> addArray) {
+        for(Event event : addArray) {
+            eventList.add(event);
+        }
+    }
+
+    public void clear() {
+        eventList.clear();
     }
 
     @Override
@@ -47,13 +95,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
     public static class EventViewHolder extends RecyclerView.ViewHolder {
-        protected TextView eventName;
 
+        protected TextView eventInfo;
 
         public EventViewHolder(View v) {
             super(v);
 
-            eventName = (TextView) v.findViewById(R.id.eventTitleCard);
+            eventInfo = (TextView) v.findViewById(R.id.eventInfoCard);
         }
     }
 }

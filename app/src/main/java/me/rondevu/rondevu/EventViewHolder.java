@@ -1,5 +1,6 @@
 package me.rondevu.rondevu;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -14,11 +15,12 @@ public class EventViewHolder extends RecyclerView.ViewHolder {
     protected TextView hostName;
     protected TextView votes;
     protected TextView category;
+    protected TextView eventInfo;
 
     public EventViewHolder(View itemView) {
         super(itemView);
-        eventName = (TextView) itemView.findViewById(R.id.eventTitleCard);
-        hostName = (TextView) itemView.findViewById(R.id.hostNameCard);
+
+        eventInfo = (TextView) itemView.findViewById(R.id.eventInfoCard);
 
     }
 }

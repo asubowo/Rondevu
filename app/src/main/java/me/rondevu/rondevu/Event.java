@@ -70,7 +70,7 @@ public class Event {
      * @return Returns the event as a readable string
      */
     public String toString() {
-        return eventName + ", hosted by " + host + " at " + getLocation();
+        return "\n\t" + eventName + "\n\tHosted by: " + host + "\n\tAt " + getLocation() + "\n\t" + getCategory() + "\n";
     }
 
     /**

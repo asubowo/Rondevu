@@ -7,10 +7,11 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
     <item
-        android:id="@+id/navigate"
-        android:icon="@drawable/ic_next"
+        android:id="@+id/action_refresh"
+        android:title="REFRESH"
         android:orderInCategory="200"
-        android:title="@string/next"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        />
 </menu>

@@ -45,6 +45,9 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
         personLimit = (EditText) findViewById(R.id.personLimitEditText);
 
 
+        button = (Button) findViewById(R.id.finalizeEventButton);
+        cancelButton = (Button) findViewById(R.id.cancelCreateEventButton);
+
         eventName.addTextChangedListener(new TextValidator(eventName) {
             @Override
             public void validate(TextView textView, String text) {
@@ -73,6 +76,7 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
                             personLimit.getText().toString().startsWith("0") || Integer.parseInt(personLimit.getText().toString()) == 0) {
 
                         personLimit.setError("Please enter a value that is greater than 0");
+
                     }
                 } else {
                     personLimit.setError("Please enter a valid number");
@@ -90,8 +94,7 @@ public class CreateEventActivity extends ActionBarActivity implements AdapterVie
         spinner.setOnItemSelectedListener(this);
 
 
-        button = (Button) findViewById(R.id.finalizeEventButton);
-        cancelButton = (Button) findViewById(R.id.cancelCreateEventButton);
+
 
     }
 
