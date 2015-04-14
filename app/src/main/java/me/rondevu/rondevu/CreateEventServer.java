@@ -38,7 +38,6 @@ public class CreateEventServer extends ActionBarActivity {
         Event event = new Event(eventName, hostName, location, eventInfo, category, personLimit);
 
         TextView text = (TextView) findViewById(R.id.textView);
-
         text.setText(event.toString());
 
     }
