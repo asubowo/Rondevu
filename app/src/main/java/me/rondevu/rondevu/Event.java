@@ -9,18 +9,20 @@ import java.util.ArrayList;
  */
 public class Event {
 
-    private String eventName, host, info;
-    ArrayList<String> tags;
+    private String eventName, host, info, category, location;
+
     private int personLimit, guestsCheckedIn, currentVotes;
 
-    public Event(String eventName, String host, String location, String info, ArrayList<String> tags) {
+    public Event(String eventName, String host, String location, String info, String category, int personLimit) {
         this.eventName = eventName;
         this.host = host;
         this.info = info;
-        personLimit = 0;
+        this.location = location;
+        this.category = category;
+        this.personLimit = personLimit;
         currentVotes = 0;
         guestsCheckedIn = 0;
-        tags = new ArrayList<String>();
+
 
     }
 
@@ -35,11 +37,12 @@ public class Event {
     }
 
     /**
-     * Returns the array of tags for this event
-     * @return An array of tags listed for this event.
+     * Returns the category of this event
+     *
+     * @return The string representation of the event's category.
      */
-    public ArrayList<String> getTags() {
-        return tags;
+    public String getCategory() {
+        return category;
     }
 
     /**
@@ -49,24 +52,25 @@ public class Event {
      */
     public String getHost() {
 
-        if (host.equals("") || host == null) {
-            return "a mysterious person";
-        }
-
         return host;
     }
 
-
+    /**
+     * Returns a string representation of the event's location
+     *
+     * @return A string of the event's location
+     */
     public String getLocation() {
-        return "";
+        return location;
     }
 
     /**
      * Converts this event to a string
+     *
      * @return Returns the event as a readable string
      */
     public String toString() {
-        return eventName + ", hosted by " + getHost() + " at " + getLocation();
+        return "\n\t" + eventName + "\n\tHosted by: " + host + "\n\tAt " + getLocation() + "\n\t" + getCategory() + "\n";
     }
 
     /**
@@ -75,10 +79,6 @@ public class Event {
      * @return The string representation of this event
      */
     public String getInfo() {
-
-        if (info.equals("") || info == null) {
-            return "No information available for this event.";
-        }
 
         return info;
     }

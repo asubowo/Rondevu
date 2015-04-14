@@ -21,7 +21,9 @@
         android:focusable="true"
         android:selectAllOnFocus="true"
         android:enabled="true"
-        android:hint="What&apos;s the event?" />
+        android:hint="What&apos;s the event?"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,7 +33,9 @@
         android:layout_alignParentEnd="true"
         android:selectAllOnFocus="true"
         android:layout_alignStart="@+id/eventNameEditText"
-        android:hint="Who&apos;s hosting?" />
+        android:hint="Who&apos;s hosting?"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,18 +59,7 @@
         android:gravity="center_vertical"
         android:paddingLeft="25dp"
         android:layout_below="@+id/eventNameEditText"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Event Info"
-        android:id="@+id/eventInfoTextView"
-        android:gravity="center_vertical"
-        android:paddingLeft="25dp"
-        android:layout_below="@+id/locationEditText"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/locationTextView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,62 +80,50 @@
         android:selectAllOnFocus="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/eventInfoEditText"
-        android:layout_below="@+id/locationEditText"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/locationEditText"
-        android:hint="What&apos;s the event about?" />
-
-    <EditText
-        android:selectAllOnFocus="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
         android:layout_alignTop="@+id/locationTextView"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/locationTextView"
-        android:hint="Where&apos;s the event at?" />
+        android:hint="Where&apos;s the event at?"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Tags"
-        android:id="@+id/tagsTextView"
+        android:text="Category"
+        android:id="@+id/categoryTextView"
+        android:paddingLeft="25dp"
+        android:gravity="center_vertical"
         android:layout_below="@+id/eventInfoEditText"
-        android:layout_alignStart="@+id/locationTextView"
-        android:layout_toStartOf="@+id/eventInfoEditText"
-        android:paddingLeft="25dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_alignTop="@+id/tagsTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/tagsTextView"
-        android:layout_alignStart="@+id/eventInfoEditText"
-        android:hint="Enter tags (separated by spaces)" />
+        android:layout_alignBottom="@+id/categorySpinner"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CREATE EVENT"
+        android:background="#FFBB02"
+        android:textColor="#FFFFFF"
         android:id="@+id/finalizeEventButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="createEvent"
+        android:layout_toEndOf="@+id/cancelCreateEventButton" />
 
     <Button
+        android:background="#FFBB02"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CANCEL"
         android:id="@+id/cancelCreateEventButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="cancelEvent"
+        android:layout_toStartOf="@+id/personLimitEditText"
+        android:singleLine="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -153,8 +134,9 @@
         android:gravity="center_vertical"
         android:paddingLeft="25dp"
         android:paddingTop="10dp"
-        android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/tagsTextView" />
+        android:layout_below="@+id/categoryTextView"
+        android:layout_alignStart="@+id/categoryTextView"
+        android:layout_marginTop="40dp" />
 
     <EditText
         android:selectAllOnFocus="true"
@@ -163,8 +145,42 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/personLimitEditText"
+        android:hint="Enter capacity"
         android:layout_alignTop="@+id/personLimitTextView"
-        android:layout_alignStart="@+id/editText"
-        android:hint="Enter capacity" />
+        android:layout_alignStart="@+id/locationEditText"
+        android:singleLine="true"
+        android:imeOptions="actionNext"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/categorySpinner"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/eventInfoEditText"
+        android:layout_toEndOf="@+id/personLimitTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Info"
+        android:id="@+id/eventInfoTextView"
+        android:gravity="center_vertical"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="25dp"
+        android:layout_alignEnd="@+id/hostNameTextView"
+        android:layout_below="@+id/locationEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventInfoEditText"
+        android:layout_alignTop="@+id/eventInfoTextView"
+        android:layout_alignStart="@+id/personLimitEditText"
+        android:layout_alignParentEnd="true"
+        android:hint="What&apos;s the event about?"
+        android:singleLine="true"
+        android:imeOptions="actionNext"/>
 
 </RelativeLayout>
